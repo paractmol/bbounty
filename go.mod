@@ -2,7 +2,7 @@ module github.com/paractmol/bbounty
 
 go 1.22.5
 
-replace bbounty => github.com/paractmol/bbounty
+retract v0.0.0
 
 require github.com/spf13/cobra v1.8.1
 
