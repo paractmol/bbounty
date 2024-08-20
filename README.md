@@ -62,4 +62,4 @@ hackertwo.com
 
 # Install
 
-`go install -v github.com/paractmol/bbounty`
+`go install -v github.com/paractmol/bbounty@latest`
