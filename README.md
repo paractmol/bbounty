@@ -42,10 +42,6 @@ To display all the domains in directories and their subdirectories, you can run 
 
 
 ```fish
-~ ❯ ls -la
-total 0
-drwxr-xr-x@  3 paractmol  staff   96 Aug 20 21:39 ./
-drwxr-xr-x@ 18 paractmol  staff  576 Aug 20 15:20 ../
 drwxr-xr-x@  3 paractmol  staff   96 Aug 20 19:28 bbp/
 
 ~ ❯ bbounty list
