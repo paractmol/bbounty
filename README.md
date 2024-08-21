@@ -29,17 +29,13 @@ Enter domain names (space-separated): hackerone.com hackertwo.com
 The following structure was just created:
 
 ```
+❯ tree bbp -n 3
 bbp
-|
-|--- HackerOne
-|   |
-|   |--- hackerone.com
-|   |   |
-|   |   |--- domains.txt
-|   |
-|   |--- hackertwo.com
-|       |
-|       |--- domains.txt
+└── HackerOne
+    ├── hackerone.com
+    │   └── domains.txt
+    └── hackertwo.com
+        └── domains.txt
 ```
 
 To display all the domains in directories and their subdirectories, you can run the `bbounty list` command.
