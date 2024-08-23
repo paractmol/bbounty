@@ -26,6 +26,11 @@ Enter domain names (space-separated): hackerone.com hackertwo.com
 ... an output from subfinder with domains it discovered
 ```
 
+Alternatively, you can specify the program type and name using these options.
+```bash
+bbounty add -p bbp -n HackerOne
+```
+
 The following structure was just created:
 
 ```
