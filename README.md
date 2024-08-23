@@ -28,7 +28,8 @@ Enter domain names (space-separated): hackerone.com hackertwo.com
 
 Alternatively, you can specify the program type and name using these options.
 ```bash
-bbounty add -p bbp -n HackerOne
+~ ❯ bbounty add -p bbp -n HackerOne
+Enter domain names (space-separated): hackerone.com hackertwo.com
 ```
 
 The following structure was just created:
