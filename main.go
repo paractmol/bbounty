@@ -14,9 +14,11 @@ import (
 )
 
 // execCommand executes a shell command in the specified directory with the given domain and command template.
-func execCommand(directory string, domain string, commandTemplate string) {
+func execCommand(directory string, domain string, commandTemplate string, verbose bool) {
 	commandString := fmt.Sprintf(commandTemplate, domain)
-	fmt.Println("Executing: " + commandString)
+	if verbose {
+		fmt.Println("Executing: " + commandString)
+	}
 	command := exec.Command("sh", "-c", commandString)
 	command.Dir = directory
 	var out bytes.Buffer
@@ -85,6 +87,7 @@ type CommandConfig struct {
 func loadCommandConfig(filename string) (string, error) {
 	var config CommandConfig
 	file, err := os.ReadFile(filename)
+
 	if err != nil {
 		return "", err // Return error if the file cannot be read
 	}
@@ -116,12 +119,15 @@ func main() {
 	}
 
 	var rootCmd = &cobra.Command{Use: "bbounty"}
+	rootCmd.PersistentFlags().BoolP("verbose", "v", false, "Verbose mode")
+
 	var addCmd = &cobra.Command{
 		Use:   "add",
 		Short: "Add a program with domain names",
 		Run: func(cmd *cobra.Command, args []string) {
 			programType, _ := cmd.Flags().GetString("program")
 			programName, _ := cmd.Flags().GetString("name")
+			verbose, _ := cmd.Flags().GetBool("verbose")
 
 			// Prompt for program type if not provided
 			if programType == "" {
@@ -158,7 +164,7 @@ func main() {
 
 			// Execute the command for each domain
 			for i, domain := range domains {
-				execCommand(programs[i], domain, commandTemplate)
+				execCommand(programs[i], domain, commandTemplate, verbose)
 			}
 		},
 	}
