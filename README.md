@@ -14,7 +14,8 @@ Available Commands:
   list        List discovered domains
 
 Flags:
-  -h, --help   help for bbounty
+  -h, --help      help for bbounty
+  -v, --verbose   Verbose mode
 
 Use "bbounty [command] --help" for more information about a command.
 
@@ -39,7 +40,7 @@ hackertwo.com
 
 The following structure was just created:
 
-```
+```fish
 ❯ tree bbp -n 3
 bbp
 └── HackerOne
@@ -66,7 +67,7 @@ hackertwo.com
 ## Unix pipeline
 
 ```
-~ ❯ cat hackerone.csv | grep URL | cut -d, -f1 | bbounty add -p bbp -n HackerOne
+~ ❯ cat hackerone.csv | grep URL | cut -d, -f1 | bbounty --verbose add -p bbp -n HackerOne
 Enter domain names (press Enter to finish):
 Executing: echo ma.hacker.one | tee domains.txt
 ma.hacker.one
@@ -82,7 +83,7 @@ hackathon-photos.hackerone-user-content.com
 
 You can set a custom command line that will be triggered when you add a new program with the `add` command.
 
-```
+```bash
 ~ ❯ cat  ~/.config/bbounty/config.yml
 command: "echo %s | tee domains.txt"
 ```
